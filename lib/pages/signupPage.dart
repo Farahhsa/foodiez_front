@@ -3,13 +3,14 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:foodiez/models/user.dart';
 import 'package:foodiez/providers/auth_provide.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 final usernameController = TextEditingController();
 final passwordController = TextEditingController();
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class Signup extends StatelessWidget {
+  const Signup({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +40,7 @@ class HomePage extends StatelessWidget {
                           username: usernameController.text,
                           password: passwordController.text),
                     );
+                context.go("/home");
               },
               child: const Text("Sign Up"),
             )

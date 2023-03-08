@@ -1,15 +1,15 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:foodiez/models/user.dart';
+
 part 'category.g.dart';
 
 @JsonSerializable()
 class Category {
+  String title;
   String user;
-  String user_ingredient;
 
   Category({
     required this.user,
-    required this.user_ingredient,
+    required this.title,
   });
   factory Category.fromJson(Map<String, dynamic> json) =>
       _$CategoryFromJson(json);

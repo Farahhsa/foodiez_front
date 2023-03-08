@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../models/user.dart';
@@ -36,6 +37,8 @@ class signinPage extends StatelessWidget {
                   user: User(
                       username: usernameController.text,
                       password: passwordController.text));
+
+              context.go("/home");
             },
             child: const Text("Sign In"),
           ),

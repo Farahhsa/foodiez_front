@@ -1,10 +1,20 @@
+import 'package:foodiez/pages/create_category.dart';
+import 'package:foodiez/pages/homepage.dart';
+import 'package:foodiez/pages/landingPage.dart';
+import 'package:foodiez/pages/signinPage.dart';
+import 'package:foodiez/providers/auth_provide.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'pages/signupPage.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(
+      create: (context) => AuthProvider(),
+    )
+  ], child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -25,15 +35,27 @@ class MyApp extends StatelessWidget {
 }
 
 final _router = GoRouter(
-  initialLocation: "/",
+  initialLocation: "/landing",
   routes: [
     GoRoute(
       path: '/',
+      builder: (context, state) => Signup(),
+    ),
+    GoRoute(
+      path: '/home',
       builder: (context, state) => HomePage(),
     ),
-    // GoRoute(
-    //   path: '/movie',
-    //   builder: (context, state) => MoviePage(),
-    // ),
+    GoRoute(
+      path: '/landing',
+      builder: (context, state) => Landing(),
+    ),
+    GoRoute(
+      path: '/signin',
+      builder: (context, state) => signinPage(),
+    ),
+    GoRoute(
+      path: '/addCategory',
+      builder: (context, state) => AddCategory(),
+    ),
   ],
 );
