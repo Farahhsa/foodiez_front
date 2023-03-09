@@ -5,6 +5,7 @@ import 'package:foodiez/pages/homepage.dart';
 import 'package:foodiez/pages/landingPage.dart';
 import 'package:foodiez/pages/signinPage.dart';
 import 'package:foodiez/providers/auth_provide.dart';
+import 'package:foodiez/providers/category_provider.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +16,10 @@ void main() {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(
       create: (context) => AuthProvider(),
-    )
+    ),
+    ChangeNotifierProvider(
+      create: (context) => CategoryProvider(),
+    ),
   ], child: MyApp()));
 }
 

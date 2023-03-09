@@ -1,18 +1,18 @@
 import 'package:dio/dio.dart';
 import '../models/ingredient.dart';
 
-class IngredientServices {
+class IngredientService {
   final Dio _dio = Dio();
 
   final _baseUrl = 'http://127.0.0.1:8000';
 
   Future<List<Ingredient>> getIngredient() async {
-    List<Ingredient> ingredient = [];
-    Response response = await _dio.get(_baseUrl + '/api/ingredient/');
-    final data = response.data as List;
-    ingredient =
-        data.map((ingredient) => Ingredient.fromJson(ingredient)).toList();
-    return ingredient;
+    List<Ingredient> ingredients = [];
+    Response response = await _dio.get(_baseUrl + '/api/ingrediants/');
+    ingredients = (response.data as List)
+        .map((ingredient) => Ingredient.fromJson(ingredient))
+        .toList();
+    return ingredients;
   }
 
   Future<Ingredient> createIngredient({required Ingredient ingredient}) async {
@@ -24,7 +24,7 @@ class IngredientServices {
       });
 
       Response response =
-          await _dio.post(_baseUrl + '/api/ingredient', data: data);
+          await _dio.post(_baseUrl + '/ingrediants/', data: data);
       retrievedIngredient = Ingredient.fromJson(response.data);
     } on DioError catch (error) {
       print(error);
