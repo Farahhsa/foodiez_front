@@ -1,4 +1,6 @@
 import 'package:foodiez/pages/create_category.dart';
+import 'package:foodiez/pages/create_ingredient.dart';
+import 'package:foodiez/pages/create_reciepe.dart';
 import 'package:foodiez/pages/homepage.dart';
 import 'package:foodiez/pages/landingPage.dart';
 import 'package:foodiez/pages/signinPage.dart';
@@ -56,6 +58,14 @@ final _router = GoRouter(
     GoRoute(
       path: '/addCategory',
       builder: (context, state) => AddCategory(),
+    ),
+    GoRoute(
+      path: '/addReciepe',
+      builder: (context, state) => AddReciepe(),
+    ),
+    GoRoute(
+      path: '/addIngrediet',
+      builder: (context, state) => AddIngredient(),
     ),
   ],
 );

@@ -10,6 +10,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           context.push("/addCategory");
@@ -17,12 +18,14 @@ class HomePage extends StatelessWidget {
         child: Icon(Icons.add),
       ),
       appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 234, 109, 150),
+        centerTitle: true,
         title: Text("Mama's Kitchen"),
       ),
       body: Column(
         children: [
           // ListView.builder(
-          //  itemCount: Category.length,
+          //  itemCount:
           //  itemBuilder: (BuildContext context, int index))
         ],
       ),
