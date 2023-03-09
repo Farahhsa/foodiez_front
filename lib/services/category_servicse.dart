@@ -24,7 +24,8 @@ class CategoryServices {
         "user": category.user,
       });
 
-      Response response = await _dio.post(_baseUrl + '/category', data: data);
+      Response response =
+          await _dio.post(_baseUrl + '/api/category/create/', data: data);
       retrievedCategory = Category.fromJson(response.data);
     } on DioError catch (error) {
       print(error);

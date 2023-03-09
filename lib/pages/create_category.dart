@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:foodiez/models/category.dart';
+import 'package:foodiez/providers/category_provider.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 class AddCategory extends StatelessWidget {
   AddCategory({Key? key}) : super(key: key);
@@ -25,6 +28,8 @@ class AddCategory extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 context.pop();
+                context.read<CategoryProvider>().createCategory(
+                    Category(user: null, title: titleController.text));
               },
               child: Text("Submit"),
             )

@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:foodiez/models/reciepe.dart';
+
 import '../models/reciepe.dart';
 
 class ReciepeServices {
@@ -10,9 +10,8 @@ class ReciepeServices {
   Future<List<Reciepe>> getReciepe() async {
     List<Reciepe> reciepe = [];
     Response response = await _dio.get(_baseUrl + '/api/reciepe/');
-    reciepe = (response.data as List)
-        .map((Reciepe) => reciepe.fromJson(reciepe))
-        .toList();
+    final data = response.data as List;
+    reciepe = data.map((reciepe) => Reciepe.fromJson(reciepe)).toList();
     return reciepe;
   }
 

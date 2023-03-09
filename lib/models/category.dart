@@ -5,7 +5,7 @@ part 'category.g.dart';
 @JsonSerializable()
 class Category {
   String title;
-  String user;
+  String? user;
 
   Category({
     required this.user,
